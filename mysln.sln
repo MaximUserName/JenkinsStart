@@ -6,8 +6,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myapi", "myapi\myapi.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTest", "MyTest\MyTest.csproj", "{CB5DDE6F-1C90-4C50-AA33-2809EE8C5C3B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nunit-Tests", "Nunit-Tests\Nunit-Tests.csproj", "{7F4FCAB8-2772-43D7-8872-740CAD4B537C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}"
 EndProject
 Global

@@ -8,6 +8,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTest", "MyTest\MyTest.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nunit-Tests", "Nunit-Tests\Nunit-Tests.csproj", "{7F4FCAB8-2772-43D7-8872-740CAD4B537C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,18 @@ Global
 		{7F4FCAB8-2772-43D7-8872-740CAD4B537C}.Release|x64.Build.0 = Release|Any CPU
 		{7F4FCAB8-2772-43D7-8872-740CAD4B537C}.Release|x86.ActiveCfg = Release|Any CPU
 		{7F4FCAB8-2772-43D7-8872-740CAD4B537C}.Release|x86.Build.0 = Release|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Debug|x64.Build.0 = Debug|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Debug|x86.Build.0 = Debug|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Release|x64.ActiveCfg = Release|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Release|x64.Build.0 = Release|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Release|x86.ActiveCfg = Release|Any CPU
+		{A40C37AE-0674-4E7B-9CD8-1C83652E7F08}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,15 +18,24 @@ namespace myapi.Controllers
         }
         // GET api/values
         [HttpGet]
-        public IEnumerable<Task> Get()
+        public IActionResult Get()
         {
-            return _context.Tasks.ToList();
-            return new []
+            List<Task> tasks = new List<Task>();
+            try
             {
-                new Task(){Name = "TaskOne"},
-                new Task(){Name = "TasTwo"},
-                new Task(){Name = "TaskThree"},
-            };
+                tasks = _context.Tasks.ToList();
+                return Ok(tasks);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+            //return new []
+            //{
+            //    new Task(){Name = "TaskOne"},
+            //    new Task(){Name = "TasTwo"},
+            //    new Task(){Name = "TaskThree"},
+            //};
         }
     }
 

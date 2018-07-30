@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo rm -rf /var/aspnetcore/*
 sudo echo 'server {
 listen 80;
 location / {

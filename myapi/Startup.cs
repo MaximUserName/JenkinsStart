@@ -28,7 +28,9 @@ namespace myapi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            var connectionString = Configuration.GetConnectionString("BlogContext");
+            // var connectionString = Configuration.GetConnectionString("BlogContext");
+            var connectionString =
+                "Server=postgre-test-db.c2sxohx0wlme.eu-west-3.rds.amazonaws.com;Port=5432;Database=catalogdb;User Id=masterlogin;Password=*fzRFz2?;";
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<BlogContext>(options => options.UseNpgsql(connectionString));
             // Register the Swagger generator, defining 1 or more Swagger documents

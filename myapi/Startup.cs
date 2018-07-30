@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using myapi.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -26,6 +28,9 @@ namespace myapi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            var connectionString = Configuration.GetConnectionString("BlogContext");
+            services.AddEntityFrameworkNpgsql()
+                .AddDbContext<BlogContext>(options => options.UseNpgsql(connectionString));
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {

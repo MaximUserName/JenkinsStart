@@ -23,9 +23,6 @@
     <None Update="scripts\install_dependencies">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="scripts\install_dependencies_old">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="scripts\start_server">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -36,6 +33,9 @@
 
   <Target Name="CustomActionsBeforePublish" BeforeTargets="BeforePublish">
     <Message Text="Inside BeforePublish" Importance="high" />
+    <Message Text="Publishing to $(PublishDir)" Importance="high" />
+    <RemoveDir Directories="$(PublishDir)" />
+    <!--<Delete Files="$(PublishDir)/*" />-->
   </Target>
   <Target Name="CustomActionsAfterPublish" AfterTargets="AfterPublish">
     <Message Text="Inside AfterPublish" Importance="high" />

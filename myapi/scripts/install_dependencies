@@ -1,0 +1,35 @@
+#!/bin/bash
+sudo echo 'server {
+listen 80;
+location / {
+	proxy_pass http://localhost:5000;
+	proxy_http_version 1.1;
+	proxy_set_header Upgrade $http_upgrade;
+	proxy_set_header Connection keep-alive;
+	proxy_set_header Host $host;
+	proxy_cache_bypass $http_upgrade;
+}
+}' > /etc/nginx/sites-enabled/default
+sudo nginx -s reload
+
+sudo echo '[Unit]
+Description=Example .NET Web API App running on Ubuntu
+
+[Service]
+Type=simple
+WorkingDirectory=/var/aspnetcore
+ExecStart=/usr/bin/dotnet /var/aspnetcore/myapi.dll
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+SyslogIdentifier=dotnet-example
+#User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target' > /etc/systemd/system/kestrel-app.service
+sudo systemctl daemon-reload
+sudo systemctl start kestrel-app.service
+sudo systemctl enable nginx
+sudo systemctl enable kestrel-app.service

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace myapi.Controllers
 {
@@ -14,8 +15,9 @@ namespace myapi.Controllers
             var connectionString =
                 "Server=postgre-test-db.c2sxohx0wlme.eu-west-3.rds.amazonaws.com;Port=5432;Database=catalogdb1;User Id=masterlogin;Password=*fzRFz2?;";
 
-            optionsBuilder.UseNpgsql(connectionString);
-            //  base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseNpgsql(connectionString, builder =>
+                builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null));
+            base.OnConfiguring(optionsBuilder);
         }
 
         public BlogContext(DbContextOptions<BlogContext> options) : base(options) { }

@@ -23,8 +23,8 @@ namespace myapi.Controllers
             List<Task> tasks = new List<Task>();
             try
             {
-                tasks = _context.Tasks.ToList();
-                return Ok(tasks);
+                //tasks = _context.Tasks.ToList();
+                return Ok(_context.Tasks);
             }
             catch (Exception e)
             {

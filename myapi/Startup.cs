@@ -50,9 +50,14 @@ namespace myapi
             app.UseStaticFiles();
             app.UseSwagger();
             if (env.IsDevelopment()
-                || env.IsProduction()) // todo remove in production!
+               // || env.IsProduction()
+                ) // todo remove in production!
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/error");
             }
 
             // To get those from NGINX proxy server

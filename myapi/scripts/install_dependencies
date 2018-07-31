@@ -25,7 +25,7 @@ Restart=always
 RestartSec=10
 SyslogIdentifier=dotnet-example
 #User=www-data
-Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=ASPNETCORE_ENVIRONMENT=Development
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 
 [Install]

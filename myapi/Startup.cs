@@ -41,8 +41,11 @@ namespace myapi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, BlogContext context)
         {
+            // https://abelsquidhead.com/index.php/2017/07/31/deploying-dbs-in-your-cicd-pipeline-with-ef-core-code-first/
+            context.Database.Migrate();
+
             app.UseStaticFiles();
             app.UseSwagger();
             if (env.IsDevelopment())

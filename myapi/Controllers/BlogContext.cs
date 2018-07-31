@@ -1,5 +1,8 @@
 ﻿using System;
+using System.IO;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 
 namespace myapi.Controllers
 {
@@ -23,5 +26,23 @@ namespace myapi.Controllers
         public BlogContext(DbContextOptions<BlogContext> options) : base(options) { }
 
         public DbSet<Task> Tasks { get; set; }
+    }
+
+    public class DesignTimeDbConextFactory : IDesignTimeDbContextFactory<BlogContext>
+    {
+        public BlogContext CreateDbContext(string[] args)
+        {
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            var builder = new DbContextOptionsBuilder<BlogContext>();
+            var connectionString = configuration.GetConnectionString("BlogContext");
+
+            builder.UseNpgsql(connectionString);
+
+            return new BlogContext(builder.Options);
+        }
     }
 }

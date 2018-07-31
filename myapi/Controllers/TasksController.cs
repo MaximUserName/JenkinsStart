@@ -43,6 +43,7 @@ namespace myapi.Controllers
             //List<Task> tasks = new List<Task>();
             try
             {
+                throw new NullReferenceException("jsdljfsldjflsdf");
                var tasks = _context.Tasks.ToArray();
                 return Ok(tasks);
             }

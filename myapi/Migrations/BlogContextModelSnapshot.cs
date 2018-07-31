@@ -29,6 +29,8 @@ namespace myapi.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("OneMore");
+
                     b.HasKey("Id");
 
                     b.ToTable("Tasks");

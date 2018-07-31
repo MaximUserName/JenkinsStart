@@ -44,12 +44,13 @@ namespace myapi
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, BlogContext context)
         {
             // https://abelsquidhead.com/index.php/2017/07/31/deploying-dbs-in-your-cicd-pipeline-with-ef-core-code-first/
-            if(env.IsProduction())
+            //if(env.IsProduction())
                 context.Database.Migrate();
 
             app.UseStaticFiles();
             app.UseSwagger();
-            if (env.IsDevelopment())
+            if (env.IsDevelopment()
+                || env.IsProduction()) // todo remove in production!
             {
                 app.UseDeveloperExceptionPage();
             }

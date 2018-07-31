@@ -20,10 +20,10 @@ namespace myapi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            List<Task> tasks = new List<Task>();
+            //List<Task> tasks = new List<Task>();
             try
             {
-                //tasks = _context.Tasks.ToList();
+               var tasks = _context.Tasks.ToArray();
                 return Ok(_context.Tasks);
             }
             catch (Exception e)
